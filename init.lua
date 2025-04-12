@@ -389,6 +389,7 @@ require('lazy').setup({
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      local actions = require 'telescope.actions'
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
@@ -398,6 +399,15 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
+        pickers = {
+          buffers = {
+            mappings = {
+              i = {
+                ['<M-d>'] = actions.delete_buffer + actions.move_to_top,
+              },
+            },
+          },
+        },
         -- pickers = {}
         extensions = {
           ['ui-select'] = {
@@ -411,9 +421,36 @@ require('lazy').setup({
       pcall(require('telescope').load_extension, 'ui-select')
 
       -- See `:help telescope.builtin`
+      -- local my_find_files
+      my_find_files = function(opts, no_ignore)
+        opts = opts or {}
+        -- no_ignore = vim.F.if_nil(no_ignore, false)
+        -- opts.attach_mappings = function(_, map)
+        --   map({ 'n', 'i' }, '<C-h>', function(prompt_bufnr) -- <C-h> to toggle modes
+        --     local prompt = require('telescope.actions.state').get_current_line()
+        --     require('telescope.actions').close(prompt_bufnr)
+        --     no_ignore = not no_ignore
+        --     my_find_files({ default_text = prompt }, no_ignore)
+        --   end)
+        --   return true
+        -- end
+
+        -- if no_ignore then
+        opts.no_ignore = true
+        opts.hidden = true
+        opts.prompt_title = 'Find Files <ALL>'
+        opts.prompt_title = 'Find Files'
+        require('telescope.builtin').find_files(opts)
+        -- else
+        -- opts.prompt_title = 'Find Files'
+        -- require('telescope.builtin').find_files(opts)
+        -- end
+      end
+
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
+      vim.keymap.set('n', '<leader>sH', my_find_files, { desc = '[S]earch [H]idden files' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
