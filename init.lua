@@ -945,6 +945,13 @@ require('lazy').setup({
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       vim.cmd.colorscheme 'tokyonight-night'
+      -- You can configure highlights by doing something like:
+      vim.cmd.hi 'Comment gui=none'
+      vim.cmd.hi 'GitSignsAdd guifg=#39FF14'
+      vim.cmd.hi 'GitSignsChange guifg=#FFD700'
+      vim.cmd.hi 'GitSignsDelete guifg=#FF2400'
+      vim.cmd.hi 'GitSignsTopDelete guifg=#FF2400'
+      vim.cmd.hi 'GitSignsChangedelete guifg=#FF2400'
     end,
   },
 
