@@ -832,6 +832,7 @@ require('lazy').setup({
         typescript = { 'prettierd', 'prettier' },
         typescriptreact = { 'prettierd', 'prettier' },
         javascriptreact = { 'prettierd', 'prettier' },
+        astro = { 'prettierd', 'prettier' },
       },
     },
   },
