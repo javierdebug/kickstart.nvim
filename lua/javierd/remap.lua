@@ -12,3 +12,6 @@ vim.keymap.set('n', '<C-j>', '<cmd>cnext<CR>zz', { desc = 'Quickfix move down' }
 vim.keymap.set('n', '<C-k>', '<cmd>cprev<CR>zz', { desc = 'Quickfix move down' })
 -- vim.keymap.set('n', '<M-j>', '<cmd>cprev<CR>zz', { desc = 'Quickfix move down' })
 -- vim.keymap.set('n', '<M-k>', '<cmd>cprev<CR>zz', { desc = 'Quickfix move up' })
+
+--Launch Explorer (netrw)  in the current directory:
+vim.keymap.set('n', '-', '<cmd>Explore<CR>', { desc = '[-]xplore current directory' })

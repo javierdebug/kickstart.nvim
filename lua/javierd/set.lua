@@ -1,4 +1,5 @@
 vim.opt.relativenumber = true
+vim.g.netrw_banner = 0
 
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
