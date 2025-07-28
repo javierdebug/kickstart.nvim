@@ -18,21 +18,21 @@
 -- }
 
 return {
-  {
-    'stevearc/oil.nvim',
-    config = function()
-      require('oil').setup {
-      }
+  -- {
+  --   'stevearc/oil.nvim',
+  --   config = function()
+  --     require('oil').setup {
+  --     }
 
-      -- Open parent directory in current window 
-      vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+  --     -- Open parent directory in current window 
+  --     vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-      -- -- Open buffer in Nemo
-      -- vim.keymap.set("n", "_", "<CMD>Oil<CR>", { desc = "Open buffer in Nemo" })
+  --     -- -- Open buffer in Nemo
+  --     -- vim.keymap.set("n", "_", "<CMD>Oil<CR>", { desc = "Open buffer in Nemo" })
 
-      -- Open parent directory in floating window 
-      vim.keymap.set("n", "<space>-", require("oil").toggle_float)
+  --     -- Open parent directory in floating window 
+  --     vim.keymap.set("n", "<space>-", require("oil").toggle_float)
 
-    end,
-  },
+  --   end,
+  -- },
 }
